@@ -1,6 +1,9 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <map>
+#include "windows.h"
 
 using namespace std;
 
@@ -38,7 +41,7 @@ private:
 	map<int, Ship> ships;
 
 	void generateDataBase() {
-		vector<string> types{ "Cargo", "Speedboat", "Cruiser" };
+		vector<string> types{ "Грузовой", "Катер", "Крейсер" };
 		for (int i = 1; i < 10; i++) {
 			Ship newship = Ship(i, types[i % 3], 50 + rand() % 100);
 			ships[newship.id] = newship;
@@ -69,7 +72,7 @@ public:
 	void selectall() override {
 		for (auto& pair : ships) {
 			Ship& ship = pair.second; // Получаем объект Route
-			cout << "ID: " << ship.id << ", Type: " << ship.type << ", Tank size: " << ship.tank << endl;
+			cout << "ID: " << ship.id << ", Тип: " << ship.type << ", Топливный бак: " << ship.tank << endl;
 		}
 	}
 
@@ -140,8 +143,8 @@ public:
 	void selectall() override{
 		for (auto& pair : routes) {
 			Route& route = pair.second; 
-			cout << "ID: " << route.id << ", PointA: " << route.pointA
-				<< ", PointB: " << route.pointB << ", Distance: " << route.distance << " metres" << endl;
+			cout << "ID: " << route.id << ", Точка отправления: " << route.pointA
+				<< ", Точка прибытия: " << route.pointB << ", Дистанция: " << route.distance << " метров" << endl;
 		}
 	}
 

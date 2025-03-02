@@ -2,17 +2,18 @@
 #include "logic.h"
 
 int main() {
+    setlocale(LC_ALL, "RUS");
     BusinessLogic logic;
     while (true) {
         string choice;
-        cout << "commands:" << endl
-            << "1. show all routes" << endl
-            << "2. show all ships" << endl
-            << "3. select route" << endl
-            << "4. select ship" << endl
-            << "5. calculate average depth at the route" << endl
-            << "6. add route" << endl;
-        cout << "cmd> ";
+        cout << "доступные команды:" << endl
+            << "1. показать все маршруты" << endl
+            << "2. показать все корабли" << endl
+            << "3. выбрать маршрут" << endl
+            << "4. выбрать судно" << endl
+            << "5. рассчитать среднюю глубину на маршруте" << endl
+            << "6. добавить маршрут" << endl;
+        cout << "команда> ";
         cin >> choice;
 
         if (choice == "1") {
@@ -23,19 +24,19 @@ int main() {
         }
         else if (choice == "3") {
             int id;
-            cout << "Enter route ID: ";
+            cout << "Введите ID маршрута: ";
             cin >> id;
             logic.select_route(id);
         }
         else if (choice == "4") {
             int id;
-            cout << "Enter ship ID: ";
+            cout << "Введите ID судна: ";
             cin >> id;
             logic.select_ship(id);
         }
         else if (choice == "5") {
             int id;
-            cout << "Enter route ID: ";
+            cout << "Введите ID маршрута: ";
             cin >> id;
             logic.calculate_depth(id);
         }
@@ -46,7 +47,7 @@ int main() {
             break;
         }
         else {
-            cout << "Wrong command" << endl;
+            cout << "Ошибка ввода команды" << endl;
         }
     }
     return 0;
